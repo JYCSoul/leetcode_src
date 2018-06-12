@@ -42,14 +42,4 @@ class Solution(object):
         :type moves: str
         :rtype: bool
         """
-        dicCount = {}
-        for c in moves:
-            if c not in dicCount:
-                dicCount.setdefault(c, 1)
-            else:
-                dicCount[c] += 1
-        up = 0 if 'U' not in dicCount else dicCount['U']
-        down = 0 if 'D' not in dicCount else dicCount['D']
-        right = 0 if 'R' not in dicCount else dicCount['R']
-        left = 0 if 'L' not in dicCount else dicCount['L']
-        return True if up == down and right == left else False
+        return True if moves.count('U') == moves.count('D') and moves.count('L') == moves.count('R') else False
