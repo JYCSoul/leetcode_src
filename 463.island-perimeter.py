@@ -37,25 +37,24 @@ class Solution(object):
         :type grid: List[List[int]]
         :rtype: int
         """
-        #  perimeter = 0
-        #  rowSize = len(grid)
-        #  colSize = len(grid[0])
-        #  for row in range(0, rowSize):
-        #      for col in range(0, colSize):
-        #          if grid[row][col] != 1:
-        #              continue
-        #          # up
-        #          if row == 0 or grid[row-1][col] == 0:
-        #              perimeter += 1
-        #          # down
-        #          if row == rowSize-1 or grid[row+1][col] == 0:
-        #              perimeter += 1
-        #          # left
-        #          if col == 0 or grid[row][col-1] == 0:
-        #              perimeter += 1
-        #          # right
-        #          if col == colSize-1 or grid[row][col+1] == 0:
-        #              perimeter += 1
-        #
-        #  return perimeter
-        return sum(sum(map(operator.ne, [0] + row, row + [0])) for row in grid + map(list, zip(*grid)))
+        perimeter = 0
+        rowSize = len(grid)
+        colSize = len(grid[0])
+        for row in range(0, rowSize):
+            for col in range(0, colSize):
+                if grid[row][col] != 1:
+                    continue
+                # up
+                if row == 0 or grid[row-1][col] == 0:
+                    perimeter += 1
+                # down
+                if row == rowSize-1 or grid[row+1][col] == 0:
+                    perimeter += 1
+                # left
+                if col == 0 or grid[row][col-1] == 0:
+                    perimeter += 1
+                # right
+                if col == colSize-1 or grid[row][col+1] == 0:
+                    perimeter += 1
+
+        return perimeter
