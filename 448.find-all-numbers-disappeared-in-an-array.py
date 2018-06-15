@@ -33,9 +33,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        count=set()
+#        count=set()
+        count = {}
         for val in nums:
-            count.add(val)
+            count[val] = 1
         ret = []
         for i in range(1, len(nums)+1):
             if i not in count:
