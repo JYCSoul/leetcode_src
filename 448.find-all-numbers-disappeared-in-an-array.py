@@ -33,12 +33,19 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        count=set()
         for val in nums:
-            count.add(val)
+            i = abs(val)
+            nums[i-1] = -abs(nums[i-1])
         ret = []
-        for i in range(1, len(nums)+1):
-            if i not in count:
-                ret.append(i)
-        
+        for i, val in enumerate(nums):
+            if val > 0:
+                ret.append(i+1)
         return ret
+        #  count=set()
+        #  for val in nums:
+        #      count.add(val)
+        #  ret = []
+        #  for i in range(1, len(nums)+1):
+        #      if i not in count:
+        #          ret.append(i)
+        #  return ret
